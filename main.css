@@ -50,6 +50,7 @@ ul {
 }
 
 .pos-sticky {
+  position: -webkit-sticky;
   position: sticky;
   will-change: transform;
 
