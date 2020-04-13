@@ -22,6 +22,7 @@ section {
     justify-content: center;
     position: relative;
     border-bottom: 2px solid #ddd;
+    margin: 1rem 0;
 }
 
 video {
@@ -59,7 +60,7 @@ ul {
 }
 
 #dummy-1 {
-    height: 2800px;
+    height: 2400px;
 }
 
 #dummy-2 {

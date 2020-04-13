@@ -32,11 +32,11 @@ const posFixedController = () => {
     }
 
     if ((getViewportHeight() - dummyStop) > 0) { // stop 出現, video 上捲退場
-      // video.style.transform = `translate3d(0, ${getVideoScrollContainerY(dummy) - ((getViewportHeight() - dummyStop))}px, 0) `;
-      video.style.top = `${getVideoScrollContainerY(dummy) - ((getViewportHeight() - dummyStop))}px`;
+      video.style.transform = `translate3d(0, ${getVideoScrollContainerY(dummy) - ((getViewportHeight() - dummyStop))}px, 0) `;
+      // video.style.top = `${getVideoScrollContainerY(dummy) - ((getViewportHeight() - dummyStop))}px`;
     } else { // 鎖定 video
-      // video.style.transform = `translate3d(0, ${getVideoScrollContainerY(dummy)}px, 0)`;
-      video.style.top = `${getVideoScrollContainerY(dummy)}px`;
+      video.style.transform = `translate3d(0, ${getVideoScrollContainerY(dummy)}px, 0)`;
+      // video.style.top = `${getVideoScrollContainerY(dummy)}px`;
     }
   });
 }
