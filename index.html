@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>animate-on-scroll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+    <!-- Ref https://www.reddit.com/r/javascript/comments/dolagh/apple_airpods_pro_page_uses_a_lot_of_images_so_i/ -->
+    <section>
+        <video id="video-1" class="pos-fixed" width="998" height="560" muted playsinline
+            poster="./Typing on Keyboard of MacBook Pro.png">
+            <source src="./Typing on Keyboard of MacBook Pro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div id="dummy-1" class="scroll-dummy" data-video="video-1">
+            <h1 class="scroll-dummy-title">animate(video) on scroll</h1>
+            <p>
+                在捲動頁面時加入動畫、動態效果，在 Apple 產品頁很常看見
+            </p>
+            <p class="p-spacing">
+                實際上製作起來應該都是透過 video 的前進、後退完成</p>
+            <p>也就是設定影片的 play current time<br>
+                頁面下捲時影片向前播放, 頁面上捲時影片後退。<br>
+                利用視覺效果，完成使用者的回朔感
+            </p>
+            <p class="p-spacing">
+                javascript 在控制影片時，需要計算其影片的長度 (duration) 和 frames，讓頁面的效果有較好的體驗<br>
+                ps: 需要配合影片的 framerate
+            </p>
+            <p class="p-spacing">
+                簡單來說，影片內容直接影響使用者在頁面上的視覺影驗(影片過快或過慢)<br>
+            </p>
+            <p class="p-spacing">&nbsp;</p>
+            <p class="p-spacing">&nbsp;</p>
+            <p>
+                設定頁面捲動與影片播放 frames, fps
+            </p>
+            <div class="p-spacing">
+                <p>
+                    example:</p>
+                <pre><code class="code-js javascript" style="font-size:18px;height: 260px;">
+        const FRAMES = 1080;
+        const FPS = 30;
+        const video1 = document.getElementById('video-1');
+
+        window.addEventListener('scroll', function (e) {
+            const time = (window.scrollY / 1000) * FRAMES / FPS;
+            video1.currentTime = time > video1.duration ?
+                video1.duration :
+                time;
+        });
+                </code></pre>
+            </div>
+            <p class="p-spacingp">
+                參考連結:
+                <ul>
+                    <li>
+                        <a href="https://codepen.io/charliezstong-pro/pen/YzPrdXV"
+                            target="_blank">https://codepen.io/charliezstong-pro/pen/YzPrdXV</a>
+                    </li>
+                    <li>
+                        <a href="https://www.reddit.com/r/javascript/comments/dolagh/apple_airpods_pro_page_uses_a_lot_of_images_so_i/"
+                            target="_blank">https://www.reddit.com/r/javascript/comments/dolagh/apple_airpods_pro_page_uses_a_lot_of_images_so_i/</a>
+                    </li>
+                    <li>
+                        註: <a href="https://www.quora.com/How-many-frames-in-a-2-minute-animation" target="_blank">
+                            https://www.quora.com/How-many-frames-in-a-2-minute-animation
+                        </a></li>
+                </ul>
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <video id="video-2" class="pos-fixed" width="998" height="560" muted playsinline
+            poster="https://lqez.github.io/js/airpodsvf/video.jpg">
+            <source src="https://lqez.github.io/js/airpodsvf/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="dummy-2" class="scroll-dummy" data-video="video-2">
+            <h2 class="scroll-dummy-title">
+                section-2<br>
+                animate(video) on scroll
+            </h2>
+            <p>
+                第二個重點，影片與文字內容區塊兩者相依
+            </p>
+            <p class="p-spacing">
+                文字區塊關系到影片出場時機(捲動出頁面)<br>
+                如果文字區塊很短影片還沒播放到重點就出場了...<br>
+                因此這個影片的附屬區塊下面留白較多
+            </p>
+            <p>
+                當然~ 適合的的影片是其中最重要因素
+            </p>
+            <p>
+                當然~ 影片的播放也速度(frame,fps)也有相對關係<br>
+                這部份目前還在找正確的計算方式...
+            </p>
+            <p class="p-spacing">
+                在這整個範例裡<br>
+                使用 tag section 做為影片與文字區塊的容器<br>
+                其中有兩個主要子容器，分別為 video 與 div<br>
+                div 做為捲動用的文字區塊<br>
+                文字區塊的 Viewport Height 與 getBoundingClientRect().bottom 大於 0 時將影片做出場行為
+            </p>
+            <p>
+                <pre><code class="code-js javascript" style="font-size:18px;height: 80px;">
+        getViewportHeight() - dummy.getBoundingClientRect().bottom > 0
+                </code></pre>
+            </p>
+        </div>
+    </section>
+    <div style="height: 200px;">end</div>
+</body>
+<script src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/a11y-dark.min.css">
+<script>
+    document.querySelectorAll('.code-js').forEach(elem => {
+        hljs.highlightBlock(elem);
+    });
+</script>
+
+</html>
