@@ -1,93 +1,97 @@
-
 :root {
-    --video-opacity: 0.6;
+  --video-opacity: 0.5;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    color: white;
-    font-weight: 600;
-    margin: 0;
-    background: #000;
-    touch-action: pan-y;
-    height: 100vh;
-    overflow: auto;
+  color: white;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  touch-action: pan-y;
+  height: 100vh;
+  overflow: auto;
 }
 
-section {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    border-bottom: 2px solid #ddd;
-    margin: 1rem 0;
+.video-scroll-section {
+  margin: 0;
+  padding: 0;
 }
 
-video {
-    -webkit-filter: opacity(var(--video-opacity));
-    -moz-filter: opacity(var(--video-opacity));
-    -ms-filter: opacity(var(--video-opacity));
-    -o-filter: opacity(var(--video-opacity));
-    filter: opacity(var(--video-opacity));
+.video {
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+}
 
-    z-index: 0;
-    max-width: 100%;
-    margin: 2rem 0;
-    left: auto;
-    top: 0;
+#video-1{
+  -webkit-filter: opacity(var(--video-opacity));
+  -moz-filter: opacity(var(--video-opacity));
+  -ms-filter: opacity(var(--video-opacity));
+  -o-filter: opacity(var(--video-opacity));
+  filter: opacity(var(--video-opacity));
 }
 
 code {
-    font-size: 18px;
-    text-align: left;
+  font-size: 18px;
+  text-align: left;
 }
 
 ul {
   text-align: left;
 }
 
-
 .p-spacing {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
-.pos-fixed {
-  transition: transform 0;
-  position: absolute;
+.pos-sticky {
+  position: sticky;
   will-change: transform;
-}
 
-#dummy-1 {
-    height: 2400px;
-}
-
-#dummy-2 {
-    height: 2000px;
+  left: 0;
+  top: 0;
 }
 
 .scroll-dummy {
-    width: 70%;
-    max-width: 998px;
-    padding: 20px;
-    margin: 0 auto;
-    z-index: 1;
-    font-family: sans-serif;
-    text-align: center;
+  width: 80%;
+  padding: 0;
+  margin: 0 auto;
+  z-index: 1;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.scroll-dummy::after {
+  display: block;
+  content:"";
+  height:90vh;
+}
+
+.disable-scroll-dummy-after::after {
+  content: none;
+}
+
+.scroll-dummy-offset-title-mask {
+  margin-top: -70vh;
 }
 
 .scroll-dummy-title {
-    font-size: 350%;
-    font-weight: 700;
-    padding: 220px 0;
-    text-align: center;
+  font-size: 10vw;
+  font-weight: 700;
+  padding: 220px 0;
+  margin: 0 0 5% 0;
+  text-align: center;
 }
 
 .scroll-dummy p,
 .scroll-dummy a {
-    font-size: 22px;
-    color: #ccc;
-    line-height: 1.6;
-    word-break: break-all;
+  font-size: 22px;
+  color: #ccc;
+  line-height: 1.6;
+  word-break: break-all;
 }
