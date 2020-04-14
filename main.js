@@ -1,10 +1,16 @@
-
+const playbackConst = 500; // lower numbers = faster playback
 const video1 = document.querySelector('#video-1');
 const video2 = document.querySelector('#video-2');
+const video3 = document.querySelector('#video-3');
 const dummy1 = document.querySelector('#dummy-1');
 const dummy2 = document.querySelector('#dummy-2');
+const dummy3 = document.querySelector('#dummy-3');
 
 const getVideoScrollContainerY = elem => {
+  if (elem.getBoundingClientRect().top >= 0) {
+    return 0;
+  }
+
   return Math.abs(elem.getBoundingClientRect().top);
 }
 
@@ -12,35 +18,56 @@ const getViewportHeight = () => {
   return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 }
 
-const isInViewport = elem => {
-  const bounding = elem.getBoundingClientRect();
-  return bounding.top <= 0 &&
-    bounding.bottom > 0;
-};
+const getVideoDuration = elem => {
+  return elem.dataset.duration || elem.duration || 0;
+}
 
-window.addEventListener('scroll', function (e) {
-  if (isInViewport(dummy1)) {
-    const FRAMES = 1080;
-    const FPS = 60;
-    const time = (getVideoScrollContainerY(dummy1) / getViewportHeight()) * FRAMES / FPS;
-    video1.currentTime = time > video1.duration ?
-      video1.duration :
-      time;
-  }
+const getVideoStartTime = elem => {
+  return parseInt(elem.dataset.starttime, 10) || 0;
+}
 
-  if (isInViewport(dummy2)) {
-    const FRAMES = 150;
-    const FPS = 60;
-    const time = (getVideoScrollContainerY(dummy2) / getViewportHeight()) * FRAMES / FPS;
-    video2.currentTime = time > video2.duration ?
-        video2.duration :
-        time;
-  }
-});
+// const setVideoCurrentTime = elem => {}
+
+function scrollPlay() {
+  video1.currentTime = getVideoScrollContainerY(dummy1) / playbackConst;
+  video2.currentTime = getVideoScrollContainerY(dummy2) / playbackConst;
+  video3.currentTime = getVideoScrollContainerY(dummy3) / playbackConst;
+
+  window.requestAnimationFrame(scrollPlay);
+}
+window.requestAnimationFrame(scrollPlay);
 
 window.addEventListener('load', function (e) {
   video1.pause();
-  video1.currentTime = 0;
+  video1.currentTime = getVideoStartTime(video1);
   video2.pause();
-  video2.currentTime = 0;
+  video2.currentTime = getVideoStartTime(video2);
+  video3.pause();
+  video3.currentTime = getVideoStartTime(video3);
+});
+
+const setVideoContainerHeight = (container, video) => {
+  container.style.minHeight =
+    container.style.maxHeight =
+      Math.floor(getVideoDuration(video))
+        * playbackConst
+        + getViewportHeight()
+        + 'px';
+  console.log(container.style.maxHeight);
+}
+
+video1.addEventListener('loadedmetadata', function () {
+  setVideoContainerHeight(dummy1, video1);
+});
+video2.addEventListener('loadedmetadata', function () {
+  setVideoContainerHeight(dummy2, video2);
+});
+video3.addEventListener('loadedmetadata', function () {
+  setVideoContainerHeight(dummy3, video3);
+});
+
+window.addEventListener("resize", function () {
+  setVideoContainerHeight(dummy1, video1);
+  setVideoContainerHeight(dummy2, video2);
+  setVideoContainerHeight(dummy3, video3);
 });

@@ -1,7 +1,3 @@
-:root {
-  --video-opacity: 0.5;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -15,6 +11,7 @@ body {
   touch-action: pan-y;
   height: 100vh;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .video-scroll-section {
@@ -26,14 +23,6 @@ body {
   z-index: -1;
   width: 100%;
   height: 100vh;
-}
-
-#video-1{
-  -webkit-filter: opacity(var(--video-opacity));
-  -moz-filter: opacity(var(--video-opacity));
-  -ms-filter: opacity(var(--video-opacity));
-  -o-filter: opacity(var(--video-opacity));
-  filter: opacity(var(--video-opacity));
 }
 
 code {
@@ -49,7 +38,14 @@ ul {
   margin-bottom: 3rem;
 }
 
+.p-spacing::after {
+  display: block;
+  content: "";
+  min-height: 3rem;
+}
+
 .pos-sticky {
+  display: block;
   position: -webkit-sticky;
   position: sticky;
   will-change: transform;
@@ -69,8 +65,8 @@ ul {
 
 .scroll-dummy::after {
   display: block;
-  content:"";
-  height:90vh;
+  content: "";
+  height: 90vh;
 }
 
 .disable-scroll-dummy-after::after {
@@ -78,10 +74,11 @@ ul {
 }
 
 .scroll-dummy-offset-title-mask {
-  margin-top: -70vh;
+  margin-top: -75vh;
 }
 
 .scroll-dummy-title {
+  text-shadow: black 0.1em 0.1em 0.2em;
   font-size: 10vw;
   font-weight: 700;
   padding: 220px 0;
@@ -92,7 +89,8 @@ ul {
 .scroll-dummy p,
 .scroll-dummy a {
   font-size: 22px;
-  color: #ccc;
+  color: #ddd;
+  text-shadow: black 0.1em 0.1em 0.2em;
   line-height: 1.6;
   word-break: break-all;
 }
