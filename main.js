@@ -23,15 +23,20 @@ const getVideoDuration = elem => {
 }
 
 const getVideoStartTime = elem => {
-  return parseInt(elem.dataset.starttime, 10) || 0;
+  return parseFloat(elem.dataset.starttime) || 0;
 }
 
-// const setVideoCurrentTime = elem => {}
+const setVideoCurrentTime = (container, video) => {
+  const time = getVideoScrollContainerY(container) / playbackConst;
+  video.currentTime = time < getVideoStartTime(video)
+    ? time + getVideoStartTime(video)
+    : time;
+}
 
-function scrollPlay() {
-  video1.currentTime = getVideoScrollContainerY(dummy1) / playbackConst;
-  video2.currentTime = getVideoScrollContainerY(dummy2) / playbackConst;
-  video3.currentTime = getVideoScrollContainerY(dummy3) / playbackConst;
+const scrollPlay = () => {
+  setVideoCurrentTime(dummy1, video1);
+  setVideoCurrentTime(dummy2, video2);
+  setVideoCurrentTime(dummy3, video3);
 
   window.requestAnimationFrame(scrollPlay);
 }
