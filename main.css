@@ -26,7 +26,7 @@ body {
 }
 
 video::-webkit-media-controls {
-  display:none !important;
+  display: none !important;
 }
 
 code {
@@ -97,4 +97,12 @@ ul {
   text-shadow: black 0.1em 0.1em 0.2em;
   line-height: 1.6;
   word-break: break-all;
+}
+
+.copyright-footer,
+.copyright-footer a {
+  font-size: 16px;
+
+  margin-bottom: 2rem;
+  border-top: 1px solid #ccc;
 }
