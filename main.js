@@ -6,6 +6,13 @@ const dummy1 = document.querySelector('#dummy-1');
 const dummy2 = document.querySelector('#dummy-2');
 const dummy3 = document.querySelector('#dummy-3');
 
+const containers = [dummy1, dummy2, dummy3];
+const videos = [video1, video2, video3];
+
+const isInViewport = elem => {
+  return (elem.getBoundingClientRect().top + elem.getBoundingClientRect().height) > 0;
+}
+
 const getVideoScrollContainerY = elem => {
   if (elem.getBoundingClientRect().top >= 0) {
     return 0;
@@ -27,10 +34,11 @@ const getVideoStartTime = elem => {
 }
 
 const setVideoCurrentTime = (container, video) => {
-  const time = getVideoScrollContainerY(container) / playbackConst;
-  video.currentTime = time < getVideoStartTime(video)
-    ? time + getVideoStartTime(video)
-    : time;
+  if (!isInViewport(video)) {
+    return;
+  }
+  video.currentTime = (getVideoScrollContainerY(container) / playbackConst)
+    + getVideoStartTime(video);
 }
 
 const scrollPlay = () => {
@@ -61,14 +69,10 @@ const setVideoContainerHeight = (container, video) => {
   console.log(container.style.maxHeight);
 }
 
-video1.addEventListener('loadedmetadata', function () {
-  setVideoContainerHeight(dummy1, video1);
-});
-video2.addEventListener('loadedmetadata', function () {
-  setVideoContainerHeight(dummy2, video2);
-});
-video3.addEventListener('loadedmetadata', function () {
-  setVideoContainerHeight(dummy3, video3);
+videos.forEach((video, index) => {
+  video.addEventListener('loadedmetadata', function () {
+    setVideoContainerHeight(containers[index], video);
+  });
 });
 
 window.addEventListener("resize", function () {
