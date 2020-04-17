@@ -25,6 +25,10 @@ body {
   height: 100vh;
 }
 
+video::-webkit-media-controls {
+  display:none !important;
+}
+
 code {
   font-size: 18px;
   text-align: left;
