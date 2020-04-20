@@ -50,7 +50,7 @@
             <p>
                 example:
                 <pre><code class="code-js javascript"
-                    style="font-size:18px;height: 300px;">
+                    style="height: 280px;">
     const playbackConst = 500; // lower numbers = faster playback
 
     .
@@ -73,8 +73,8 @@
                     <li>
                         <a id="codepen-example"></a>
                         註1: <a href="https://codepen.io/charliezstong-pro/pen/YzPrdXV" target="_blank">codepen
-                                AirPods
-                                Pro 捲動範例</a>
+                            AirPods
+                            Pro 捲動範例</a>
                     </li>
                     <li>
                         <a href="https://codepen.io/ollieRogers/pen/lfeLc/?editors=1010" target="_blank">
@@ -95,8 +95,8 @@
     </section>
 
     <section class="video-scroll-section">
-        <video id="video-2" class="video pos-sticky" data-starttime="2" data-duration="4" loop muted autoplay playsinline
-            poster="./typing-on-keyboard-of-macbook-pro-852295.png">
+        <video id="video-2" class="video pos-sticky" data-starttime="2" data-duration="4" loop muted autoplay
+            playsinline poster="./typing-on-keyboard-of-macbook-pro-852295.png">
             <source src="./typing-on-keyboard-of-macbook-pro-852295.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -121,7 +121,7 @@
                 </p>
                 <p>
                     <pre><code class="code-js css"
-                    style="font-size:18px;height: 240px;">
+                    style="height: 220px;">
     .pos-sticky {
         display: block;
         position: -webkit-sticky;
@@ -190,7 +190,7 @@
             </p>
             <p>
                 <pre><code class="code-js javascript"
-                        style="font-size:18px;height: 360px;">
+                        style="height: 320px;">
     // set text container height
     textContainer.style.minHeight =
             Math.ceil(getVideoDuration(video))
@@ -217,46 +217,37 @@
 
     <section class="video-scroll-section">
         <div class="scroll-dummy disable-scroll-dummy-after">
-            <h3 class="">無影片區塊</h3>
+            <h3 class="">需注意事項</h3>
+            <p class="p-spacing"></p>
             <p>
-                需注意事項:
-            </p>
-            <p>
-                safarif 需隱藏播放鈕
+                video tag at mobile browser<br>
+                特別指定部份參數，確保各瀏覽(mobile)都能正常播放
                 <pre><code class="code-js javascript"
-                    style="font-size:18px;height: 300px;">
+                    style="height: 220px;">
+    &lt;video
+        loop
+        muted
+        autoplay
+        playsinline
+        poster="./Pexels-Videos-2715.png"&gt;
+        &lt;source src="./Pexels-Videos-2715.mp4" type="video/mp4"&gt;
+        Your browser does not support the video tag.
+    &lt;/video&gt;
+    </code></pre>
+            </p>
+            <p class="p-spacing"></p>
+            <p>
+                safari mobile 隱藏播放鈕
+                <pre><code class="code-js css"
+                    style="height: 100px;">
     video::-webkit-media-controls {
         display: none !important;
     }
                   </code></pre>
             </p>
-            <p>Besides, SHE'S she, and I'm I, and--oh dear, how puzzling it all seemed quite dull and stupid for life to
-                go
-                on in the pool a little way off, and she swam about, trying to find that she was walking hand in her
-                pocket,
-                and pulled out a box of comfits, (luckily the salt water had not got into it), and handed them round as
-                prizes.
-            </p>
-            <p class="p-spacing">
-                `But it's no use their putting their heads down and began to cry again. `Mine is a long and a
-                sad
-                tale!' said the Lory hastily. How queer everything is queer to-day.' Just then she heard a
-                little way
-                off,
-                and she jumped up on to her feet in a long, low hall, which was lit up by a row of lamps hanging
-                from
-                the
-                roof.
-            </p>
-            <p>`I must be shutting up like a telescope! So she began: `O Mouse, do you know the way I want to
-                go! `I
-                quite forgot you didn't like cats.' </p>
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
 
-            <p class="p-spacing">
-                Incididunt laborum culpa aliqua deserunt Lorem quis laborum irure cupidatat. Nostrud consequat irure
-                nulla amet aliqua voluptate sit nisi enim Lorem dolor laborum tempor. Officia quis commodo tempor ipsum
-                laborum elit laborum nulla deserunt eiusmod nostrud.
-            </p>
             <footer class="copyright-footer">
                 source github: <a href="https://github.com/cscolabear/video-on-scroll" target="_blank">
                     https://github.com/cscolabear/video-on-scroll</a><br>

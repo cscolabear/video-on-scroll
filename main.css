@@ -121,7 +121,8 @@ ul {
 
 .copyright-footer {
   font-size: 12px;
-  margin: 0 -5% 90px -5%;
+  margin: 0 -5%;
+  padding: 0 1% 90px 1%;
   border-top: 1px solid #ccc;
 }
 
