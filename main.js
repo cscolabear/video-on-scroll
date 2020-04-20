@@ -61,12 +61,11 @@ window.addEventListener('load', function (e) {
 
 const setVideoContainerHeight = (container, video) => {
   container.style.minHeight =
-    container.style.maxHeight =
       Math.floor(getVideoDuration(video))
         * playbackConst
         + getViewportHeight()
         + 'px';
-  console.log(container.style.maxHeight);
+  console.log(container.style.minHeight);
 }
 
 videos.forEach((video, index) => {

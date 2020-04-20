@@ -11,7 +11,7 @@
 
 <body>
     <section class="video-scroll-section">
-        <video id="video-1" class="video pos-sticky" data-duration="5" loop muted autoplay playsinline
+        <video id="video-1" class="video pos-sticky" data-duration="5" loop muted playsinline
             poster="./Pexels-Videos-2715.png">
             <source src="./Pexels-Videos-2715.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -19,6 +19,11 @@
 
         <div id="dummy-1" class="scroll-dummy scroll-dummy-offset-title-mask">
             <h1 class="scroll-dummy-title">animate(video) on scroll</h1>
+
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
             <p>
                 在捲動頁面時加入動畫、動態效果，在 Apple 產品頁很常看見
             </p>
@@ -26,8 +31,7 @@
                 實際上製作起來應該都是透過 video 的前進、後退完成</p>
             <p class="p-spacing"></p>
             <p>也就是設定影片的 play current time<br>
-                頁面下捲時影片向前播放, 頁面上捲時影片後退。<br>
-                利用視覺效果，完成使用者的回朔感
+                頁面下捲時影片向前播放, 頁面上捲時影片後退完成這樣的視覺效果
             </p>
             <p class="p-spacing"></p>
             <p class="p-spacing">
@@ -35,14 +39,16 @@
                 ps: 需要配合影片的 framerate
             </p>
             <p class="p-spacing">
-                簡單來說，影片內容直接影響使用者在頁面上的視覺影驗(影片過快或過慢)<br>
+                簡單來說，<br>影片內容直接影響使用者在頁面上的視覺影驗<br>
+                (影片過快或過慢)
+            </p>
+            <p class="p-spacing"></p>
+            <p>
+                設定頁面捲動與影片播放 frames, fps<br>
+                利用 `requestAnimationFrame` 監聽頁面捲動位置並設定影片 currentTime
             </p>
             <p>
-                設定頁面捲動與影片播放 frames, fps
-            </p>
-            <div class="p-spacing">
-                <p>
-                    example:</p>
+                example:
                 <pre><code class="code-js javascript"
                     style="font-size:18px;height: 300px;">
     const playbackConst = 500; // lower numbers = faster playback
@@ -58,24 +64,29 @@
     }
     window.requestAnimationFrame(scrollPlay);
                 </code></pre>
-            </div>
-            <p class="p-spacingp">
+            </p>
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
+            <p>
                 參考連結:
                 <ul>
                     <li>
-                        <del><a href="https://codepen.io/charliezstong-pro/pen/YzPrdXV" target="_blank">codepen AirPods
-                                Pro 捲動範例</a></del>
+                        <a id="codepen-example"></a>
+                        註1: <a href="https://codepen.io/charliezstong-pro/pen/YzPrdXV" target="_blank">codepen
+                                AirPods
+                                Pro 捲動範例</a>
                     </li>
                     <li>
                         <a href="https://codepen.io/ollieRogers/pen/lfeLc/?editors=1010" target="_blank">
                             requestAnimationFrame 搭配捲動範例</a>
                     </li>
                     <li>
-                        註: <a href="https://www.quora.com/How-many-frames-in-a-2-minute-animation" target="_blank">
+                        <a id="how-many-frame"></a>
+                        註2: <a href="https://www.quora.com/How-many-frames-in-a-2-minute-animation" target="_blank">
                             frame 計算方式
                         </a></li>
                     <li>
-                        all video from:
+                        video from:
                         <a href="https://www.pexels.com/search/videos/laptop/" target="_blank">www.pexels.com</a>
                     </li>
                 </ul>
@@ -84,21 +95,29 @@
     </section>
 
     <section class="video-scroll-section">
-        <video id="video-2" class="video pos-sticky" data-starttime="2" data-duration="4" loop muted autoplay muted
-            playsinline poster="./typing-on-keyboard-of-macbook-pro-852295.png">
+        <video id="video-2" class="video pos-sticky" data-starttime="2" data-duration="4" loop muted playsinline
+            poster="./typing-on-keyboard-of-macbook-pro-852295.png">
             <source src="./typing-on-keyboard-of-macbook-pro-852295.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
         <div id="dummy-2" class="scroll-dummy scroll-dummy-offset-title-mask">
-            <h2 class="scroll-dummy-title">section-2</h2>
+            <h2 class="scroll-dummy-title">
+                <div class="dummy-2-title-1">影片</div>
+                <div class="dummy-2-title-2">與</div>
+                <div class="dummy-2-title-3">捲軸關係</div>
+            </h2>
             <p>
                 注意影片長度與大小，截入速度造成使用者體驗不同<br>
                 若一定要使用較大的影片，記得指定良好的 video poster(preview photo)
-                <p>可以讓影片在載入不破壞畫面(ux)</p>
+                <p>可以讓影片在載入前不破壞畫面(ux)</p>
+                <p class="p-spacing"></p>
+                <p class="p-spacing"></p>
+                <p class="p-spacing"></p>
+                <p class="p-spacing"></p>
                 <p class="p-spacing"></p>
                 <p>
-                    這個範例中的 video tag 使用 position sticky
+                    這個範例的 video tag 都使用 position sticky
                 </p>
                 <p>
                     <pre><code class="code-js css"
@@ -114,7 +133,9 @@
     }
                     </code>
                     </pre>
-                    擔心瀏覽器不支援的話，可以加入 polyfill<br>
+                </p>
+                <p>
+                    若有需要也可以加入 polyfill<br>
                     polyfill position sticky:
                     <a href="https://github.com/yowainwright/stickybits" target="_blank">
                         https://github.com/yowainwright/stickybits</a>
@@ -124,44 +145,54 @@
     </section>
 
     <section class="video-scroll-section">
-        <video id="video-3" class="video pos-sticky" muted loop muted autoplay playsinline
+        <video id="video-3" class="video pos-sticky" muted loop playsinline
             poster="https://lqez.github.io/js/airpodsvf/video.jpg">
             <source src="https://lqez.github.io/js/airpodsvf/video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div id="dummy-3" class="scroll-dummy scroll-dummy-offset-title-mask">
             <h2 class="scroll-dummy-title">
-                video section-3
+                <div class="dummy-3-title-1">影片</div>
+                <div class="dummy-3-title-2">與</div>
+                <div class="dummy-3-title-3">內容的完美平衝</div>
             </h2>
-            <p>this video from github(codepen example)</p>
-            <p>
-                第二個重點，影片與文字內容區塊兩者相依
+            <p>this video from github
+                <a href="#codepen-example">(註1 codepen example)</a>
             </p>
             <p class="p-spacing">
+                影片與文字內容區塊兩者相依<br>
                 文字區塊關系到影片出場時機(捲動出頁面)</p>
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
             <p>
-                如果文字區塊 height 不足，影片還沒播放到重點就出場了...<br>
-                也就是文字區塊的高度(長度)不夠
-                <p class="p-spacing">
-                    因此這個影片的附屬區塊下面留白較多
-                </p>
-                <p class="p-spacing">
-                    當然~ 選擇合適的影片是其中最重要因素</p>
-                <p class="p-spacing"></p>
-                <p>而影片的播放也速度(frame,fps)也有相對關係<br>
-                    這部份目前還在找正確的計算方式...
-                </p>
-                <p>
-                    在這整個範例裡<br>
-                    使用 tag section 做為影片與文字區塊的容器<br>
-                    其中有兩個主要子容器，分別為 video 與 div
-                </p>
-                <p>
-                    <pre><code class="code-js javascript"
+                如果文字區塊高度 (height) 不足<br>
+                影片還沒播放到重點就出場了...<br>
+            </p>
+            <p class="p-spacing">
+                因此這類的效果，文字內容與影片長度會互相配合<br>
+                影片較短或是文字行距較大<br>
+                當然~ 選擇合適的影片是其中最重要因素</p>
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
+            <p class="p-spacing"></p>
+            <p>而影片的播放也速度(frame,fps)也有相對關係<br>
+                這部份目前還在找正確的計算方式...
+                <a href="#how-many-frame">(註2)</a>
+            </p>
+            <p>
+                在這整個範例裡<br>
+                使用 section tag 做為影片與文字區塊的容器<br>
+                其中有兩個主要子容器，分別為 video 與 div (dummy)<br>
+                取得 video 影片長度，設定文字區塊的高度也是一種技巧
+            </p>
+            <p>
+                <pre><code class="code-js javascript"
                         style="font-size:18px;height: 360px;">
     // set text container height
     textContainer.style.minHeight =
-        textContainer.style.maxHeight =
             Math.ceil(getVideoDuration(video))
             * playbackConst
             + getViewportHeight()
@@ -175,14 +206,21 @@
         return elem.dataset.duration || elem.duration || null;
     }
                 </code></pre>
-                </p>
+            </p>
+            <p>
+                當然<br>
+                也可以依需求，直接透過 css 指定文字區塊的高度
+            </p>
         </div>
+
     </section>
 
     <section class="video-scroll-section">
         <div class="scroll-dummy disable-scroll-dummy-after">
             <h3 class="">無影片區塊</h3>
-            <p>佔位文字</p>
+            <p>
+                需注意事項:
+            </p>
             <p>Besides, SHE'S she, and I'm I, and--oh dear, how puzzling it all seemed quite dull and stupid for life to
                 go
                 on in the pool a little way off, and she swam about, trying to find that she was walking hand in her
@@ -211,7 +249,7 @@
                 laborum elit laborum nulla deserunt eiusmod nostrud.
             </p>
             <footer class="copyright-footer">
-                github: <a href="https://github.com/cscolabear/video-on-scroll" target="_blank">
+                source github: <a href="https://github.com/cscolabear/video-on-scroll" target="_blank">
                     https://github.com/cscolabear/video-on-scroll</a><br>
 
             </footer>

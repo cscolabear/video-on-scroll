@@ -30,7 +30,7 @@ video::-webkit-media-controls {
 }
 
 code {
-  font-size: 18px;
+  font-size: 16px;
   text-align: left;
 }
 
@@ -90,6 +90,26 @@ ul {
   text-align: center;
 }
 
+.dummy-2-title-1,
+.dummy-2-title-2,
+.dummy-2-title-3 {
+  font-size: 7vw;
+  text-align: right;
+}
+.dummy-2-title-2 {
+  margin-right: 5%;
+}
+
+.dummy-3-title-1,
+.dummy-3-title-2,
+.dummy-3-title-3 {
+  font-size: 7vw;
+  text-align: left;
+}
+.dummy-3-title-2 {
+  margin-left: 5%;
+}
+
 .scroll-dummy p,
 .scroll-dummy a {
   font-size: 22px;
@@ -99,10 +119,12 @@ ul {
   word-break: break-all;
 }
 
-.copyright-footer,
-.copyright-footer a {
-  font-size: 16px;
-
-  margin-bottom: 2rem;
+.copyright-footer {
+  font-size: 12px;
+  margin: 0 -5% 90px -5%;
   border-top: 1px solid #ccc;
+}
+
+.copyright-footer a {
+  font-size: 12px;
 }
