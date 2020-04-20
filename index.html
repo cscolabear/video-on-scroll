@@ -11,7 +11,7 @@
 
 <body>
     <section class="video-scroll-section">
-        <video id="video-1" class="video pos-sticky" data-duration="5" loop muted playsinline
+        <video id="video-1" class="video pos-sticky" data-duration="5" loop muted autoplay playsinline
             poster="./Pexels-Videos-2715.png">
             <source src="./Pexels-Videos-2715.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -95,7 +95,7 @@
     </section>
 
     <section class="video-scroll-section">
-        <video id="video-2" class="video pos-sticky" data-starttime="2" data-duration="4" loop muted playsinline
+        <video id="video-2" class="video pos-sticky" data-starttime="2" data-duration="4" loop muted autoplay playsinline
             poster="./typing-on-keyboard-of-macbook-pro-852295.png">
             <source src="./typing-on-keyboard-of-macbook-pro-852295.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -145,7 +145,7 @@
     </section>
 
     <section class="video-scroll-section">
-        <video id="video-3" class="video pos-sticky" muted loop playsinline
+        <video id="video-3" class="video pos-sticky" muted loop autoplay playsinline
             poster="https://lqez.github.io/js/airpodsvf/video.jpg">
             <source src="https://lqez.github.io/js/airpodsvf/video.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -220,6 +220,15 @@
             <h3 class="">無影片區塊</h3>
             <p>
                 需注意事項:
+            </p>
+            <p>
+                safarif 需隱藏播放鈕
+                <pre><code class="code-js javascript"
+                    style="font-size:18px;height: 300px;">
+    video::-webkit-media-controls {
+        display: none !important;
+    }
+                  </code></pre>
             </p>
             <p>Besides, SHE'S she, and I'm I, and--oh dear, how puzzling it all seemed quite dull and stupid for life to
                 go
