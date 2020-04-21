@@ -90,6 +90,10 @@ ul {
   text-align: center;
 }
 
+.title-section-without-video {
+  border-bottom: 2px solid #fff;
+}
+
 .dummy-2-title-1,
 .dummy-2-title-2,
 .dummy-2-title-3 {
@@ -112,7 +116,7 @@ ul {
 
 .scroll-dummy p,
 .scroll-dummy a {
-  font-size: 22px;
+  font-size: 20px;
   color: #ddd;
   text-shadow: black 0.1em 0.1em 0.2em;
   line-height: 1.6;
