@@ -9,6 +9,19 @@ const dummy3 = document.querySelector('#dummy-3');
 const containers = [dummy1, dummy2, dummy3];
 const videos = [video1, video2, video3];
 
+const getVideoStartTime = elem => {
+  return parseFloat(elem.dataset.starttime) || 0;
+}
+
+(function() {
+  video1.pause();
+  video1.currentTime = getVideoStartTime(video1);
+  video2.pause();
+  video2.currentTime = getVideoStartTime(video2);
+  video3.pause();
+  video3.currentTime = getVideoStartTime(video3);
+})();
+
 const isInViewport = elem => {
   return (elem.getBoundingClientRect().top + elem.getBoundingClientRect().height) > 0;
 }
@@ -29,10 +42,6 @@ const getVideoDuration = elem => {
   return elem.dataset.duration || elem.duration || 0;
 }
 
-const getVideoStartTime = elem => {
-  return parseFloat(elem.dataset.starttime) || 0;
-}
-
 const setVideoCurrentTime = (container, video) => {
   if (!isInViewport(video)) {
     return;
@@ -50,14 +59,6 @@ const scrollPlay = () => {
 }
 window.requestAnimationFrame(scrollPlay);
 
-window.addEventListener('load', function (e) {
-  video1.pause();
-  video1.currentTime = getVideoStartTime(video1);
-  video2.pause();
-  video2.currentTime = getVideoStartTime(video2);
-  video3.pause();
-  video3.currentTime = getVideoStartTime(video3);
-});
 
 const setVideoContainerHeight = (container, video) => {
   container.style.minHeight =
