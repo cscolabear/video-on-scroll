@@ -223,7 +223,7 @@
                 video tag at mobile browser<br>
                 特別指定部份參數，確保各瀏覽(mobile)都能正常播放
                 <pre><code class="code-js javascript"
-                    style="height: 220px;">
+                    style="height: 200px;">
     &lt;video
         muted
         autoplay
@@ -236,11 +236,14 @@
             </p>
             <p class="p-spacing"></p>
             <p>
-                safari mobile 隱藏播放鈕
+                mobile browser 隱藏播放鈕
                 <pre><code class="code-js css"
-                    style="height: 100px;">
-    video::-webkit-media-controls {
-        display: none !important;
+                    style="height: 160px;">
+    *::-webkit-media-controls-panel,
+    *::-webkit-media-controls-play-button,
+    *::-webkit-media-controls-start-playback-button {
+        display: none!important;
+        -webkit-appearance: none;
     }
                   </code></pre>
             </p>

@@ -25,9 +25,15 @@ body {
   height: 100vh;
 }
 
-video::-webkit-media-controls {
-  display: none !important;
+/* remove, hide native play button for video form mobile browser */
+*::-webkit-media-controls-panel,
+*::-webkit-media-controls-play-button,
+*::-webkit-media-controls-start-playback-button {
+  display: none!important;
+  -webkit-appearance: none;
 }
+
+
 
 code {
   font-size: 16px;
@@ -100,6 +106,7 @@ ul {
   font-size: 7vw;
   text-align: right;
 }
+
 .dummy-2-title-2 {
   margin-right: 5%;
 }
@@ -110,6 +117,7 @@ ul {
   font-size: 7vw;
   text-align: left;
 }
+
 .dummy-3-title-2 {
   margin-left: 5%;
 }
