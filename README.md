@@ -1,7 +1,8 @@
 # video-on-scroll
 
 preview:
-![screencapture-localhost-video-on-scroll-2020-04-13-17_07_11](https://user-images.githubusercontent.com/4863629/79108895-e0a3d600-7da9-11ea-896b-f0d8224ed76a.png)
+![](https://user-images.githubusercontent.com/4863629/80168483-8c082280-8615-11ea-98f0-d16f8f201fd3.gif)
+
 
 demo:
 https://cscolabear.github.io/video-on-scroll/
